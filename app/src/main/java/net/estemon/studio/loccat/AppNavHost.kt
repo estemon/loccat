@@ -32,18 +32,18 @@ fun AppNavHost(navController: NavHostController) {
         composable(Routes.QR_SCANNER_SCREEN) {
             QRScannerScreen(navController = navController)
         }
-        composable(Routes.DISTANCE_SCREEN) {
-            DistanceScreen(navController = navController)
-        }
         composable(
-            route = "${Routes.HINT_SCREEN}/{qrValue}",
+            route = "${Routes.DISTANCE_SCREEN}/{qrValue}",
             arguments = listOf(navArgument("qrValue") {
                 type = NavType.StringType
             })
         ) { backStackEntry ->
             val qrValueEncoded = backStackEntry.arguments?.getString("qrValue")
             val qrValue = qrValueEncoded?.let { Uri.decode(it) }
-            HintScreen(navController = navController, qrValue = qrValue)
+            DistanceScreen(navController = navController, qrValue = qrValue)
+        }
+        composable(Routes.HINT_SCREEN) {
+            HintScreen(navController = navController)
         }
         composable(Routes.LOGIN_SCREEN) {
             LoginScreen(navController = navController)

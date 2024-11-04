@@ -84,7 +84,7 @@ fun CameraPreview(navController: NavHostController) {
 
     val onQRCodeScanned: (String) -> Unit = { qrValue ->
         val encodedQrValue = Uri.encode(qrValue)
-        navController.navigate("${Routes.HINT_SCREEN}/$encodedQrValue")
+        navController.navigate("${Routes.DISTANCE_SCREEN}/$encodedQrValue")
     }
 
     AndroidView(
