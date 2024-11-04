@@ -31,11 +31,6 @@ fun LocCat(name: String, modifier: Modifier = Modifier) {
     val navController = rememberNavController()
 
     AppNavHost(navController = navController)
-
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
 }
 
 @Preview(showBackground = true)
