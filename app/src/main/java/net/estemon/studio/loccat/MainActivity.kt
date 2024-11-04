@@ -32,11 +32,3 @@ fun LocCat(name: String, modifier: Modifier = Modifier) {
 
     AppNavHost(navController = navController)
 }
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    LocCatTheme {
-        LocCat("Android")
-    }
-}

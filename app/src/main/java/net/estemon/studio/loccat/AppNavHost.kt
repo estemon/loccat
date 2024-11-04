@@ -4,15 +4,15 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import net.estemon.studio.loccat.screen.DistanceScreen
-import net.estemon.studio.loccat.screen.EditPointScreen
-import net.estemon.studio.loccat.screen.EditRouteScreen
-import net.estemon.studio.loccat.screen.HintScreen
-import net.estemon.studio.loccat.screen.LoginScreen
-import net.estemon.studio.loccat.screen.MainScreen
-import net.estemon.studio.loccat.screen.QRScannerScreen
-import net.estemon.studio.loccat.screen.SplashScreen
-import net.estemon.studio.loccat.screen.TeacherModeScreen
+import net.estemon.studio.loccat.ui.screen.DistanceScreen
+import net.estemon.studio.loccat.ui.screen.EditPointScreen
+import net.estemon.studio.loccat.ui.screen.EditRouteScreen
+import net.estemon.studio.loccat.ui.screen.HintScreen
+import net.estemon.studio.loccat.ui.screen.LoginScreen
+import net.estemon.studio.loccat.ui.screen.MainScreen
+import net.estemon.studio.loccat.ui.screen.QRScannerScreen
+import net.estemon.studio.loccat.ui.screen.SplashScreen
+import net.estemon.studio.loccat.ui.screen.TeacherModeScreen
 
 @Composable
 fun AppNavHost(navController: NavHostController) {
@@ -39,7 +39,14 @@ fun AppNavHost(navController: NavHostController) {
             LoginScreen(navController = navController)
         }
         composable(Routes.TEACHER_MODE_SCREEN) {
-            TeacherModeScreen(navController = navController)
+            val isAuthenticated = true
+            if (isAuthenticated) {
+                TeacherModeScreen(navController = navController)
+            } else {
+                navController.navigate(Routes.LOGIN_SCREEN) {
+                    popUpTo(Routes.MAIN_SCREEN)
+                }
+            }
         }
         composable(Routes.EDIT_POINT_SCREEN) {
             EditPointScreen(navController = navController)

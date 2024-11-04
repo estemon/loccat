@@ -1,4 +1,4 @@
-package net.estemon.studio.loccat.screen
+package net.estemon.studio.loccat.ui.screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

@@ -1,4 +1,4 @@
-package net.estemon.studio.loccat.screen
+package net.estemon.studio.loccat.ui.screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -10,12 +10,12 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 
 @Composable
-fun HintScreen(navController: NavHostController) {
+fun LoginScreen(navController: NavHostController) {
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text(text = "HINT")
+        Text(text = "LOGIN")
     }
 }
