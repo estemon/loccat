@@ -21,6 +21,7 @@ fun MainScreen(navController: NavHostController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+        Text(text = "MAIN")
         Button(onClick = {
             navController.navigate(Routes.QR_SCANNER_SCREEN)
         }) {
@@ -28,7 +29,7 @@ fun MainScreen(navController: NavHostController) {
         }
         Spacer(modifier = Modifier.height(16.dp))
         Button(onClick = {
-            navController.navigate(Routes.LOGIN_SCREEN)
+            navController.navigate(Routes.TEACHER_MODE_SCREEN)
         }) {
             Text(text = "Teacher Mode")
         }
