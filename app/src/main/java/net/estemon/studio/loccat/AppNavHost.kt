@@ -1,9 +1,12 @@
 package net.estemon.studio.loccat
 
+import android.net.Uri
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import net.estemon.studio.loccat.ui.screen.DistanceScreen
 import net.estemon.studio.loccat.ui.screen.EditPointScreen
 import net.estemon.studio.loccat.ui.screen.EditRouteScreen
@@ -32,8 +35,15 @@ fun AppNavHost(navController: NavHostController) {
         composable(Routes.DISTANCE_SCREEN) {
             DistanceScreen(navController = navController)
         }
-        composable(Routes.HINT_SCREEN) {
-            HintScreen(navController = navController)
+        composable(
+            route = "${Routes.HINT_SCREEN}/{qrValue}",
+            arguments = listOf(navArgument("qrValue") {
+                type = NavType.StringType
+            })
+        ) { backStackEntry ->
+            val qrValueEncoded = backStackEntry.arguments?.getString("qrValue")
+            val qrValue = qrValueEncoded?.let { Uri.decode(it) }
+            HintScreen(navController = navController, qrValue = qrValue)
         }
         composable(Routes.LOGIN_SCREEN) {
             LoginScreen(navController = navController)

@@ -51,7 +51,21 @@ android {
 
 dependencies {
 
+    // Navigation
     implementation(libs.navigation.compose)
+
+    // ML Kit for QR Scan
+    implementation(libs.barcode.scanning)
+
+    // CameraX
+    implementation(libs.androidx.camera.core)
+    implementation(libs.androidx.camera.camera2)
+    implementation(libs.androidx.camera.lifecycle)
+    implementation(libs.androidx.camera.view)
+    implementation(libs.androidx.camera.extensions)
+
+    // Multidex
+    implementation(libs.androidx.multidex)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

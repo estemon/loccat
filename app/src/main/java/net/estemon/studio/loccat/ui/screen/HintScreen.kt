@@ -13,17 +13,18 @@ import androidx.navigation.NavHostController
 import net.estemon.studio.loccat.Routes
 
 @Composable
-fun HintScreen(navController: NavHostController) {
+fun HintScreen(
+    navController: NavHostController,
+    qrValue: String?
+) {
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
         Text(text = "HINT")
-        Button(onClick = {
-            // TODO back handler
-        }) {
-            Text(text = "Back")
+        if (qrValue != null) {
+            Text(text = qrValue)
         }
     }
 }
