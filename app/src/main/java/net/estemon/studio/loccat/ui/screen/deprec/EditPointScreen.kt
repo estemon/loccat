@@ -1,4 +1,4 @@
-package net.estemon.studio.loccat.ui.screen
+package net.estemon.studio.loccat.ui.screen.deprec
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -22,33 +22,26 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.google.android.gms.maps.model.CameraPosition
+import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.maps.android.compose.GoogleMap
+import com.google.maps.android.compose.GoogleMapComposable
 import com.google.maps.android.compose.Marker
+import com.google.maps.android.compose.MarkerState
 import com.google.maps.android.compose.rememberCameraPositionState
 import com.google.maps.android.compose.rememberMarkerState
-import net.estemon.studio.loccat.view.MapLibreMapView
+import net.estemon.studio.loccat.Routes
 import org.json.JSONObject
-import org.maplibre.android.geometry.LatLng
-
-fun createJson(latLng: LatLng, hint: String) : String {
-    val jsonObject = JSONObject().apply {
-        put("latitude", latLng.latitude)
-        put("longitude", latLng.longitude)
-        put("hint", hint)
-    }
-    return jsonObject.toString()
-}
 
 @Composable
-fun EditPointScreen(navController: NavHostController) {
+fun EditPointScreen2(navController: NavHostController) {
     val context = LocalContext.current
 
     // marker position state
-    var markerPosition by remember { mutableStateOf<com.google.android.gms.maps.model.LatLng?>(null) }
+    var markerPosition by remember { mutableStateOf<LatLng?>(null) }
 
     // initial position state
-    val initialPosition = com.google.android.gms.maps.model.LatLng(41.515233, 1.650557)
+    val initialPosition = LatLng(41.515233, 1.650557)
 
     // hint text state
     var hintText by remember { mutableStateOf("") }
@@ -125,3 +118,11 @@ fun EditPointScreen(navController: NavHostController) {
     }
 }
 
+//fun createJson(latLng: LatLng, hint: String) : String {
+//    val jsonObject = JSONObject().apply {
+//        put("latitude", latLng.latitude)
+//        put("longitude", latLng.longitude)
+//        put("hint", hint)
+//    }
+//    return jsonObject.toString()
+//}

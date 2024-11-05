@@ -1,20 +1,28 @@
 [versions]
-agp = "8.6.0"
+agp = "8.6.1"
+androidSdk = "11.6.0"
 barcodeScanning = "17.3.0"
 cameraCore = "1.4.0"
 kotlin = "1.9.0"
-coreKtx = "1.13.1"
+coreKtx = "1.15.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
-lifecycleRuntimeKtx = "2.8.6"
-activityCompose = "1.9.2"
-composeBom = "2024.04.01"
+lifecycleRuntimeKtx = "2.8.7"
+activityCompose = "1.9.3"
+composeBom = "2024.10.01"
+mapboxSdkGeojson = "5.8.0"
+mapsCompose = "2.11.4"
 multidex = "2.0.1"
 navigationComposeVersion = "2.8.3"
+playServicesBase = "18.5.0"
 playServicesLocation = "21.3.0"
+playServicesMaps = "19.0.0"
+vtm = "0.16.0"
+vtmAndroid = "0.16.0"
 
 [libraries]
+android-sdk = { module = "org.maplibre.gl:android-sdk", version.ref = "androidSdk" }
 androidx-camera-camera2 = { module = "androidx.camera:camera-camera2", version.ref = "cameraCore" }
 androidx-camera-core = { module = "androidx.camera:camera-core", version.ref = "cameraCore" }
 androidx-camera-extensions = { module = "androidx.camera:camera-extensions", version.ref = "cameraCore" }
@@ -36,8 +44,15 @@ androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+mapbox-sdk-geojson = { module = "com.mapbox.mapboxsdk:mapbox-sdk-geojson", version.ref = "mapboxSdkGeojson" }
+maps-compose = { module = "com.google.maps.android:maps-compose", version.ref = "mapsCompose" }
+
 navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationComposeVersion" }
+play-services-base = { module = "com.google.android.gms:play-services-base", version.ref = "playServicesBase" }
 play-services-location = { group = "com.google.android.gms", name = "play-services-location", version.ref = "playServicesLocation" }
+play-services-maps = { module = "com.google.android.gms:play-services-maps", version.ref = "playServicesMaps" }
+vtm = { module = "org.mapsforge:vtm", version.ref = "vtm" }
+vtm-android = { module = "org.mapsforge:vtm-android", version.ref = "vtmAndroid" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

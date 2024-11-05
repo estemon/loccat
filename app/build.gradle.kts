@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "net.estemon.studio.loccat"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "net.estemon.studio.loccat"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -18,6 +18,8 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        // manifestPlaceholders["MAPS_API_KEY"] = ""
     }
 
     buildTypes {
@@ -66,6 +68,19 @@ dependencies {
 
     // Multidex
     implementation(libs.androidx.multidex)
+
+    // Google Maps Compose
+    implementation(libs.maps.compose)
+    implementation(libs.play.services.maps)
+    implementation(libs.play.services.base)
+
+    // MapLibre GL
+    implementation(libs.android.sdk)
+    implementation(libs.mapbox.sdk.geojson)
+
+    // Mapsfoge
+    //implementation(libs.vtm)
+    //implementation(libs.vtm.android)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

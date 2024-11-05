@@ -1,4 +1,4 @@
-package net.estemon.studio.loccat.ui.screen
+package net.estemon.studio.loccat.ui.screen.deprec
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -31,14 +31,14 @@ import net.estemon.studio.loccat.view.MapLibreMapView
 import org.json.JSONObject
 import org.maplibre.android.geometry.LatLng
 
-fun createJson(latLng: LatLng, hint: String) : String {
-    val jsonObject = JSONObject().apply {
-        put("latitude", latLng.latitude)
-        put("longitude", latLng.longitude)
-        put("hint", hint)
-    }
-    return jsonObject.toString()
-}
+//fun createJson(latLng: LatLng, hint: String) : String {
+//    val jsonObject = JSONObject().apply {
+//        put("latitude", latLng.latitude)
+//        put("longitude", latLng.longitude)
+//        put("hint", hint)
+//    }
+//    return jsonObject.toString()
+//}
 
 @Composable
 fun EditPointScreen(navController: NavHostController) {
@@ -78,8 +78,7 @@ fun EditPointScreen(navController: NavHostController) {
                 cameraPositionState = cameraPositionState,
                 onMapClick = { latLng ->
                     markerPosition = latLng
-                },
-                onMapLoaded = { isMapLoaded = true }
+                }
             ) {
                 markerPosition?.let { position ->
                     val markerState = rememberMarkerState(position = position)
@@ -93,35 +92,34 @@ fun EditPointScreen(navController: NavHostController) {
                     )
                 }
             }
-        }
 
-        // input fields
-        Column(
-            modifier = Modifier
-                .padding(16.dp)
-        ) {
-            OutlinedTextField(
-                value = hintText,
-                onValueChange = { hintText = it },
-                label = { Text("Hint") },
-                modifier = Modifier.fillMaxWidth()
-            )
-            Spacer(modifier = Modifier.height(16.dp))
-            Button(
-                onClick = {
-                    if (markerPosition != null && hintText.isNotBlank()) {
-                        // jsonData = createJson(markerPosition!!, hintText)
-                    } else {
-                        // TODO error message
-                    }
-                },
-                modifier = Modifier.align(Alignment.End)
+            // input fields
+            Column(
+                modifier = Modifier
+                    .padding(16.dp)
             ) {
-                Text("Generate QR")
+                OutlinedTextField(
+                    value = hintText,
+                    onValueChange = { hintText = it },
+                    label = { Text("Hint") },
+                    modifier = Modifier.fillMaxWidth()
+                )
+                Spacer(modifier = Modifier.height(16.dp))
+                Button(
+                    onClick = {
+                        if (markerPosition != null && hintText.isNotBlank()) {
+                            // jsonData = createJson(markerPosition!!, hintText)
+                        } else {
+                            // TODO error message
+                        }
+                    },
+                    modifier = Modifier.align(Alignment.End)
+                ) {
+                    Text("Generate QR")
+                }
             }
+            Text(text = "EDIT POINT")
+            Text(text = jsonData)
         }
-        Text(text = "EDIT POINT")
-        Text(text = jsonData)
     }
 }
-
