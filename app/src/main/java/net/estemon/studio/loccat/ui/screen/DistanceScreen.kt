@@ -105,8 +105,8 @@ fun DistanceScreen(
             val formattedDistance = "%.1f".format(distanceInMeters)
             Text(text = "$formattedDistance meters")
 
-            // go to HINT_SCREEN if it's under 2 meters
-            if (distanceInMeters!! < 2) {
+            // move to HINT_SCREEN if it's under 2 meters
+            if (distanceInMeters!! < 3) {
                 LaunchedEffect(Unit) {
                     navController.navigate(Routes.HINT_SCREEN) {
                         popUpTo(Routes.DISTANCE_SCREEN) { inclusive = true }

@@ -71,16 +71,14 @@ dependencies {
 
     // Google Maps Compose
     implementation(libs.maps.compose)
+    implementation(libs.maps.compose.utils)
+    implementation(libs.maps.compose.widgets)
     implementation(libs.play.services.maps)
     implementation(libs.play.services.base)
 
-    // MapLibre GL
-    implementation(libs.android.sdk)
-    implementation(libs.mapbox.sdk.geojson)
-
-    // Mapsfoge
-    //implementation(libs.vtm)
-    //implementation(libs.vtm.android)
+    // QR Libraries
+    implementation("com.google.zxing:core:3.5.3")
+    implementation("com.journeyapps:zxing-android-embedded:4.3.0")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
